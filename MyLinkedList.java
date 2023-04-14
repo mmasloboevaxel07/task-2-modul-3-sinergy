@@ -21,10 +21,6 @@ public class MyLinkedList<E> {
         }
     }
 
-    public int getSize() {
-        return size;
-    }
-
     private int size;
     private Node head;
 
@@ -32,13 +28,15 @@ public class MyLinkedList<E> {
         size = 0;
         head = null;
     }
-
     private Node getNode(int index) {
         Node node = head;
         for (int i = 0; i < index; i++) {
             node = node.next;
         }
         return node;
+    }
+    public int getSize() {
+        return size;
     }
 
     public E get(int index) {
@@ -97,5 +95,14 @@ public class MyLinkedList<E> {
 
     public void remove(Object object) {
         remove(indexOf(object));
+    }
+
+    public void print() {
+        System.out.print("Содержимое массива: ( ");
+        for (int i = 0; i < size; i++) {
+            System.out.print(get(i) + " ");
+        }
+        System.out.println("), длина массива: " + size);
+
     }
 }
